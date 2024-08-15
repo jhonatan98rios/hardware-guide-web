@@ -3,9 +3,21 @@
 import { Carousel } from '@/components/carousel'
 import axios from 'axios'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
+
 
 export default function Result() {
+  return (
+    <Suspense fallback={
+      <p className="text-center text-sm text-white leading-6"> Carregando </p>
+    }>
+      <Recommendations />
+    </Suspense>
+  )
+}
+
+
+function Recommendations() {
 
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -36,20 +48,18 @@ export default function Result() {
   return (
     <main className="flex items-center justify-center bg-[#0a0a1a] w-full h-screen">
       <section className="max-w-[480px] w-11/12 h-96 justify-center items-center border border-[#4CC392] border-solid rounded-3xl p-8">
-
         <h1 className="text-center w-full mx-0 my-4 text-[#4CC392] text-lg font-bold"> Encontre o computador ideal para você! </h1>
 
-        <p className="text-center text-sm text-white leading-6">
-          { (!content && !error) && "Carregando" }
-        </p>
+        <div>
+          <p className="text-center text-sm text-white leading-6">
+            { content && <Carousel cards={content} /> }
+          </p>
 
-        <p className="text-center text-sm text-white leading-6">
-          { content && <Carousel cards={content} /> }
-        </p>
+          <p className="text-center text-sm text-white leading-6">
+            { error && JSON.stringify(error.message) }
+          </p>
+        </div>
 
-        <p className="text-center text-sm text-white leading-6">
-          { error && JSON.stringify(error.message) }
-        </p>
       </section>
     </main>
   );
