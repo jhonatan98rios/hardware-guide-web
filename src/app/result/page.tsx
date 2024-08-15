@@ -1,6 +1,7 @@
 "use client"
  
 import { Carousel } from '@/components/carousel'
+import { smartEndpoint } from '@/constants/endpoints'
 import axios from 'axios'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useEffect, useState, Suspense } from 'react'
@@ -25,10 +26,7 @@ function Recommendations() {
   const [error, setError] = useState<any>(null)
 
   async function handleRequest(sample: string) {
-
-    //const resultUrl = "https://tz4t8f081h.execute-api.us-east-1.amazonaws.com/dev/smart"
-    const resultUrl = "http://localhost:5000/dev/smart"
-    return await axios.post(resultUrl, { text: sample })
+    return await axios.post(smartEndpoint, { text: sample })
   }
 
   useEffect(() => {
