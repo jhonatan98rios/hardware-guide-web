@@ -37,9 +37,10 @@ export default function Home() {
         <textarea
           value={sample}
           onChange={eventHandler}
-          className="h-60 w-full border border-[#4CC392] border-solid rounded-3xl bg-[#0a0a1a] text-white p-4"
-          name="input"
-          id="input"
+          className="h-60 w-full border border-[#4CC392] border-solid rounded-3xl bg-[#111] text-white p-4"
+          placeholder="Procuro um PC para..."
+          name="sample"
+          id="sample"
         />
 
         {
