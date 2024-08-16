@@ -55,7 +55,7 @@ export default function Home() {
           )
         }
 
-        <div className="text-white text-xs mt-16 text-center">
+        <div className="text-white text-xs mt-8 text-center">
           * O algoritmo esta em fase de treino e pode apresentar inconsistências. as frases serão armazenas e posteriormente utilizadas no treino do algoritmo.
         </div>
       </section>

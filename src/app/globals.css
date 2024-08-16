@@ -18,6 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow-x: hidden;
   background: linear-gradient(
       to bottom,
       transparent,
@@ -30,4 +31,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.flickity-enabled:focus {
+  outline: none;
 }
