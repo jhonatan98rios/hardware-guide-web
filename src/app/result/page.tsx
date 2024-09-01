@@ -1,8 +1,6 @@
 "use client"
  
-import { Carousel } from '@/components/carousel'
 import { Suspense } from 'react'
-import { useResultViewModel } from './resultViewModel'
 import { ResultView } from './resultView'
 
 
