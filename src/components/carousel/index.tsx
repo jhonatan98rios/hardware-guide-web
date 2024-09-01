@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, ICard } from "../card"
 import Flickity from 'react-flickity-component'
 
@@ -18,7 +20,7 @@ export function Carousel({ cards }: ICarousel) {
             options={flickityOptions} // takes flickity options {}
             disableImagesLoaded={false} // default false
             reloadOnUpdate // default false
-            static // default false
+            static={true} // default false
         >
             { cards.map(card => <Card { ...card } /> ) }
         </Flickity>
